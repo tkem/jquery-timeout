@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+<title>QUnit Test Page for jquery.timeout</title>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+<script type="text/javascript" src="jquery.timeout.js"></script>
+</head>
+
+<body>
+<h1 id="qunit-header">QUnit Test Page for jquery.timeout</h1>
+<h2 id="qunit-banner"></h2>
+<div id="qunit-testrunner-toolbar"></div>
+<h2 id="qunit-userAgent"></h2>
+<ol id="qunit-tests"></ol>
+<div id="qunit-fixture"></div>
+
+<script type="text/javascript">
+module("jquery.timeout 1.0.0");
+
+asyncTest("resolve timeout with zero delay", 1, function() {
+    $.timeout(0).done(function() {
+        ok(true);
+        start();
+    });
+});
+
+asyncTest("resolve timeout with 1 second delay", 1, function() {
+    var now = new Date().getTime();
+    $.timeout(1000).done(function() {
+        ok(new Date().getTime() >= (now + 1000));
+        start();
+    });
+});
+
+asyncTest("clear timeout", 1, function() {
+    var t = $.timeout(86400000).then(function() {
+        ok(false);
+        start();
+    }, function() {
+        ok(true);
+        start();
+    });
+    
+    t.clear();
+});
+</script>
+
+<script type="text/javascript">
+module("jquery.timeout 1.1.0");
+
+asyncTest("additional resolve args", 3, function() {
+    $.timeout(0, "abc", 42).done(function(a, b) {
+        equal(arguments.length, 2);
+        equal(a, "abc");
+        equal(b, 42);
+        start();
+    });
+});
+
+asyncTest("additional reject args", 3, function() {
+    var t = $.timeout(86400000).fail(function(a, b) {
+        equal(arguments.length, 2);
+        equal(a, "abc");
+        equal(b, 42);
+        start();
+    });
+    
+    t.clear("abc", 42);
+});
+</script>
+</body>
+</html>
