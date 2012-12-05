@@ -37,7 +37,7 @@ asyncTest("resolve timeout with 1 second delay", 1, function() {
 
 asyncTest("clear timeout", 1, function() {
     var t = $.timeout(86400000);
-	t.then(function() {
+    t.then(function() {
         ok(false);
         start();
     }, function() {
@@ -63,7 +63,7 @@ asyncTest("additional resolve args", 3, function() {
 
 asyncTest("additional reject args", 3, function() {
     var t = $.timeout(86400000);
-	t.fail(function(a, b) {
+    t.fail(function(a, b) {
         equal(arguments.length, 2);
         equal(a, "abc");
         equal(b, 42);
