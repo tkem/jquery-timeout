@@ -4,7 +4,7 @@
 <head>
 <title>QUnit Test Page for jquery.timeout</title>
 <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
 <script type="text/javascript" src="jquery.timeout.js"></script>
 </head>
@@ -36,7 +36,8 @@ asyncTest("resolve timeout with 1 second delay", 1, function() {
 });
 
 asyncTest("clear timeout", 1, function() {
-    var t = $.timeout(86400000).then(function() {
+    var t = $.timeout(86400000);
+	t.then(function() {
         ok(false);
         start();
     }, function() {
@@ -61,13 +62,13 @@ asyncTest("additional resolve args", 3, function() {
 });
 
 asyncTest("additional reject args", 3, function() {
-    var t = $.timeout(86400000).fail(function(a, b) {
+    var t = $.timeout(86400000);
+	t.fail(function(a, b) {
         equal(arguments.length, 2);
         equal(a, "abc");
         equal(b, 42);
         start();
     });
-    
     t.clear("abc", 42);
 });
 </script>
