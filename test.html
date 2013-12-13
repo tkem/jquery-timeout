@@ -3,9 +3,9 @@
 
 <head>
 <title>QUnit Test Page for jquery.timeout</title>
-<link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css" type="text/css" media="screen" />
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
 <script type="text/javascript" src="jquery.timeout.js"></script>
 </head>
 
@@ -18,7 +18,7 @@
 <div id="qunit-fixture"></div>
 
 <script type="text/javascript">
-module("jquery.timeout 1.0.0");
+module("jquery.timeout");
 
 asyncTest("resolve timeout with zero delay", 1, function() {
     $.timeout(0).done(function() {
