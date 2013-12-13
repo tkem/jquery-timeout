@@ -1,9 +1,7 @@
 /**
  * jquery.timeout.js
  * 
- * Copyright (c) 2011 Thomas Kemmer <tkemmer@computer.org>
- * 
- * http://code.google.com/p/jquery-timeout/
+ * Copyright (c) 2011-2013 Thomas Kemmer <tkemmer@computer.org>
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +36,7 @@
         });
 
         return $.extend(deferred.promise(), {
-            clear : function() {
+            clear: function() {
                 deferred.rejectWith(deferred, arguments);
             }
         });

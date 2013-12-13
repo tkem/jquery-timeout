@@ -1,34 +1,22 @@
 {
-  "name": "timeout",
-  "title": "jquery.timeout",
-  "description": "jQuery.Deferred Wrapper for setTimeout/clearTimeout.",
-  "keywords": [
-    "timeout",
-    "deferred",
-    "promise"
-  ],
-  "version": "1.1.0",
-  "author": {
-    "name": "Thomas Kemmer",
-    "url": "https://github.com/tkem/jquery-timeout/blob/1.1.0/AUTHORS.txt"
-  },
-  "maintainers": [
-    {
-      "name": "Thomas Kemmer",
-      "email": "tkemmer@computer.org"
-    }
-  ],
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/tkem/jquery-timeout/blob/1.1.0/LICENSE.txt"
-    }
-  ],
-  "bugs": "https://github.com/tkem/jquery-timeout/issues",
-  "homepage": "https://github.com/tkem/jquery-timeout",
-  "docs": "https://github.com/tkem/jquery-timeout",
-  "download": "http://code.jquery.com/#timeout",
-  "dependencies": {
-    "jquery": ">=1.5"
-  }
+    "name": "timeout",
+    "version": "1.1.0",
+    "title": "jQuery Timeout",
+    "author": {
+        "name": "Thomas Kemmer",
+        "email": "tkemmer@computer.org"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/tkem/jquery-timeout/blob/1.1.0/LICENSE.txt"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.5"
+    },
+    "description": "jQuery.Deferred Wrapper for setTimeout/clearTimeout.",
+    "keywords": [ "timeout", "setTimeout", "delay", "deferred", "promise" ],
+    "homepage": "http://tkem.github.io/jquery-timeout/",
+    "bugs": "https://github.com/tkem/jquery-timeout/issues"
 }
