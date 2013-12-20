@@ -15,8 +15,8 @@
     "dependencies": {
         "jquery": ">=1.5"
     },
-    "description": "A simple jQuery.Deferred wrapper for window.setTimeout and window.clearTimeout.",
+    "description": "Simple, yet elegant, jQuery.Deferred wrapper for window.setTimeout and window.clearTimeout.",
     "keywords": [ "timeout", "delay", "setTimeout", "clearTimeout", "Deferred", "promise" ],
-    "homepage": "http://tkem.github.io/jquery-timeout/",
+    "homepage": "https://github.com/tkem/jquery-timeout/",
     "bugs": "https://github.com/tkem/jquery-timeout/issues"
 }
