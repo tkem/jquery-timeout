@@ -1,44 +1,43 @@
-/**
- * jquery.timeout.js
- * 
+/*!
+ * jQuery Timeout Plugin
+ * http://plugins.jquery.com/timeout/
+ *
  * Copyright (c) 2011-2013 Thomas Kemmer <tkemmer@computer.org>
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * Released under the MIT license
+ * http://github.com/tkem/jquery-timeout/blob/master/MIT-LICENSE.txt
  */
-;(function($) {
-    $.timeout = function(delay) {
-        var args = Array.prototype.slice.call(arguments, 1);
-
-        var deferred = $.Deferred(function(deferred) {
+;(function( $, window, document, undefined ) {
+    // private constructor function
+    function Timeout( delay, func ) {
+        var deferred = $.Deferred(function( deferred ) {
             deferred.timeoutID = window.setTimeout(function() {
-                deferred.resolveWith(deferred, args);
+                func.call( deferred, deferred );
             }, delay);
-
             deferred.fail(function() {
-                window.clearTimeout(deferred.timeoutID);
+                window.clearTimeout( deferred.timeoutID );
             });
         });
-
-        return $.extend(deferred.promise(), {
+        return deferred.promise({
             clear: function() {
-                deferred.rejectWith(deferred, arguments);
+                deferred.reject.apply( deferred, arguments );
+            },
+            clearWith: function( context, args ) {
+                deferred.rejectWith( context, args );
             }
         });
-    };
-})(jQuery);
+    }
+
+    $.extend($, {
+        timeout: function( delay ) {
+            var args = Array.prototype.slice.call( arguments, 1 );
+            return Timeout( delay, function( deferred ) {
+                deferred.resolve.apply( deferred, args );
+            });
+        },
+        timeoutWith: function( delay, context, args ) {
+            return Timeout( delay, function( deferred ) {
+                deferred.resolveWith( context, args );
+            });
+        }
+    });
+})( jQuery, window, document );
