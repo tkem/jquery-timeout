@@ -1,7 +1,7 @@
 {
     "name": "timeout",
     "version": "1.2.0",
-    "title": "jQuery Timeout",
+    "title": "jQuery Timeout Plugin",
     "author": {
         "name": "Thomas Kemmer",
         "email": "tkemmer@computer.org"
