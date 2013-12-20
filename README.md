@@ -1,17 +1,18 @@
 # [jQuery Timeout Plugin](https://github.com/tkem/jquery-timeout/)
 
-**jQuery 1.5** introduced the _Deferred_ callback management system,
-to ease handling callbacks for asynchronous events.  Although the
-jQuery documentation contains examples on how to use Deferred objects
-with the native `window.setTimeout` and `window.clearTimeout`
+**jQuery 1.5** introduced the [Deferred
+Object](http://api.jquery.com/category/deferred-object/) to ease
+handling callbacks for asynchronous events.  Although the jQuery
+documentation contains examples on how to use Deferred objects with
+the native `window.setTimeout()` and `window.clearTimeout()`
 functions, jQuery does not provide a simple interface for timer-based
 Deferreds yet.
 
-This plugin provides the two functions `jQuery.timeout` and
-`jQuery.timeoutWith` that, given a delay in milliseconds, create a
+This plugin provides the two functions `jQuery.timeout()` and
+`jQuery.timeoutWith()` that, given a delay in milliseconds, create a
 `jQuery.Deferred` instance that will be resolved after the given
-delay.  The returned Promise object also provides `clear` and
-`clearWith` methods, which will reject the Deferred object and clear
+delay.  The returned Promise object also provides `clear()` and
+`clearWith()` methods, which will reject the Deferred object and clear
 the native timeout ID, if called before the timeout has elapsed.
 
 
@@ -21,24 +22,32 @@ the native timeout ID, if called before the timeout has elapsed.
 
 Create a Deferred object that will be resolved after the specified
 `delay` in milliseconds.  When the Deferred is resolved, any
-doneCallbacks are called with optional arguments `args`.
+doneCallbacks are called with optional arguments `args`.  The returned
+`Timeout` object extends the Deferred's Promise object with the
+addional methods `clear()` and `clearWith()`, for rejecting the
+Deferred before the delay has elapsed.
 
 ### jQuery.timeoutWith( delay, context [, args ] )
 
 Create a Deferred object that will be resolved after the specified
 `delay` in milliseconds.  When the Deferred is resolved, any
 doneCallbacks are called with the given `context` as the `this`
-object, and the optional array `args` as arguments.
+object, and the optional array `args` as arguments.  The returned
+`Timeout` object extends the Deferred's Promise object with the
+addional methods `clear()` and `clearWith()`, for rejecting the
+Deferred before the delay has elapsed.
 
 ### timeout.clear( [ args... ] )
 
-Clear a pending timeout by immediately rejecting the corresponding
+Clear a pending Promise object returned by `jQuery.timeout()` or
+`jQuery.timeoutWith()` by immediately rejecting the corresponding
 Deferred object.  When the Deferred is rejected, any failCallbacks are
 called with optional arguments `args`.
 
 ### timeout.clearWith( context [, args ] )
 
-Clear a pending timeout by immediately rejecting the corresponding
+Clear a pending Promise object returned by `jQuery.timeout()` or
+`jQuery.timeoutWith()` by immediately rejecting the corresponding
 Deferred object.  When the Deferred is rejected, any failCallbacks are
 called with the given `context` as the `this` object, and the optional
 array `args` as arguments.
@@ -69,12 +78,10 @@ timeout.
  
 ```
 var timeout = $.timeout( 10000 );
-
 timeout.then(
     function() { alert( "timeout elapsed" ) },
     function() { alert( "timeout cleared" ) }
 );
-
 $( "#clear" ).click(function() {
     timeout.clear();
 });
