@@ -11,12 +11,13 @@
     function Timeout( delay, func ) {
         var deferred = $.Deferred(function( deferred ) {
             deferred.timeoutID = window.setTimeout(function() {
-                func.call( deferred, deferred );
+                func.call( deferred );
             }, delay);
             deferred.fail(function() {
                 window.clearTimeout( deferred.timeoutID );
             });
         });
+
         return deferred.promise({
             clear: function() {
                 deferred.reject.apply( deferred, arguments );
@@ -30,13 +31,13 @@
     $.extend($, {
         timeout: function( delay ) {
             var args = Array.prototype.slice.call( arguments, 1 );
-            return Timeout( delay, function( deferred ) {
-                deferred.resolve.apply( deferred, args );
+            return Timeout( delay, function() {
+                this.resolve.apply( this, args );
             });
         },
         timeoutWith: function( delay, context, args ) {
-            return Timeout( delay, function( deferred ) {
-                deferred.resolveWith( context, args );
+            return Timeout( delay, function() {
+                this.resolveWith( context, args );
             });
         }
     });
