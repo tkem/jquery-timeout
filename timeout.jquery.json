@@ -1,6 +1,6 @@
 {
     "name": "timeout",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "title": "jQuery Timeout Plugin",
     "author": {
         "name": "Thomas Kemmer",
@@ -9,14 +9,14 @@
     "licenses": [
         {
             "type": "MIT",
-            "url": "https://github.com/tkem/jquery-timeout/blob/1.2.0/MIT-LICENSE.txt"
+            "url": "http://github.com/tkem/jquery-timeout/blob/master/MIT-LICENSE.txt"
         }
     ],
     "dependencies": {
         "jquery": ">=1.5"
     },
-    "description": "Simple, yet elegant, jQuery.Deferred wrapper for window.setTimeout and window.clearTimeout.",
-    "keywords": [ "timeout", "delay", "setTimeout", "clearTimeout", "Deferred", "promise" ],
+    "description": "Simple, yet elegant jQuery.Deferred wrapper for window.setTimeout and window.clearTimeout.",
+    "keywords": [ "timeout", "deferred", "promise", "delay" ],
     "homepage": "https://github.com/tkem/jquery-timeout/",
     "bugs": "https://github.com/tkem/jquery-timeout/issues"
 }
