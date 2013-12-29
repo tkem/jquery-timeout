@@ -6,39 +6,36 @@
  * Released under the MIT license
  * http://github.com/tkem/jquery-timeout/blob/master/MIT-LICENSE.txt
  */
-;(function( $, window, document, undefined ) {
+;(function( $, window, undefined ) {
     // private constructor function
-    function Timeout( delay, func ) {
-        var deferred = $.Deferred(function( deferred ) {
-            deferred.timeoutID = window.setTimeout(function() {
-                func.call( deferred );
+    function Timeout( delay, context, args ) {
+        var deferred = $.Deferred(),
+            promise = deferred.promise({
+                clear: function() {
+                    deferred.rejectWith( this, arguments );
+                },
+                clearWith: function( context, args ) {
+                    deferred.rejectWith( context, args );
+                }
+            }),
+            timeoutID = window.setTimeout(function() {
+                deferred.resolveWith( context || promise, args );
             }, delay);
-            deferred.fail(function() {
-                window.clearTimeout( deferred.timeoutID );
-            });
+
+        deferred.fail(function() {
+            window.clearTimeout( timeoutID );
         });
 
-        return deferred.promise({
-            clear: function() {
-                deferred.reject.apply( deferred, arguments );
-            },
-            clearWith: function( context, args ) {
-                deferred.rejectWith( context, args );
-            }
-        });
+        return promise;
     }
 
-    $.extend($, {
+    $.extend({
         timeout: function( delay ) {
-            var args = Array.prototype.slice.call( arguments, 1 );
-            return Timeout( delay, function() {
-                this.resolve.apply( this, args );
-            });
+            var args = $.makeArray( arguments ).slice( 1 );
+            return Timeout( delay, undefined, args );
         },
         timeoutWith: function( delay, context, args ) {
-            return Timeout( delay, function() {
-                this.resolveWith( context, args );
-            });
+            return Timeout( delay, context, args );
         }
     });
-})( jQuery, window, document );
+})( jQuery, window );

@@ -30,10 +30,10 @@ asyncTest( "resolve timeout with one second delay", 2, function() {
 
 asyncTest( "resolve timeout with context and args", 2, function() {
     var $fixture = $( "#qunit-fixture" );
-    var t = $.timeoutWith( 
-        0, 
-        $fixture.data( "resolve-context" ), 
-        $fixture.data( "resolve-args" ) 
+    var t = $.timeoutWith(
+        0,
+        $fixture.data( "resolve-context" ),
+        $fixture.data( "resolve-args" )
     );
     t.done(function() {
         deepEqual( this, $fixture.data( "resolve-context" ) );
@@ -44,13 +44,13 @@ asyncTest( "resolve timeout with context and args", 2, function() {
 
 asyncTest( "clear timeout without args", 2, function() {
     var $fixture = $( "#qunit-fixture" );
-    var t = $.timeoutWith( 
-        86400000, 
-        $fixture.data( "resolve-context" ), 
-        $fixture.data( "resolve-args" ) 
+    var t = $.timeoutWith(
+        86400000,
+        $fixture.data( "resolve-context" ),
+        $fixture.data( "resolve-args" )
     );
     t.fail(function() {
-        deepEqual( this, t.promise ? t.promise() : t );
+        deepEqual( this, t );
         deepEqual( $.makeArray( arguments ), [] );
         start();
     });
@@ -59,13 +59,13 @@ asyncTest( "clear timeout without args", 2, function() {
 
 asyncTest( "clear timeout with args", 2, function() {
     var $fixture = $( "#qunit-fixture" );
-    var t = $.timeoutWith( 
-        86400000, 
-        $fixture.data( "resolve-context" ), 
-        $fixture.data( "resolve-args" ) 
+    var t = $.timeoutWith(
+        86400000,
+        $fixture.data( "resolve-context" ),
+        $fixture.data( "resolve-args" )
     );
     t.fail(function() {
-        deepEqual( this, t.promise ? t.promise() : t );
+        deepEqual( this, t );
         deepEqual( $.makeArray( arguments ), $fixture.data( "clear-args" ) );
         start();
     });
@@ -74,18 +74,18 @@ asyncTest( "clear timeout with args", 2, function() {
 
 asyncTest( "clear timeout with context and args", 2, function() {
     var $fixture = $( "#qunit-fixture" );
-    var t = $.timeoutWith( 
-        86400000, 
-        $fixture.data( "resolve-context" ), 
-        $fixture.data( "resolve-args" ) 
+    var t = $.timeoutWith(
+        86400000,
+        $fixture.data( "resolve-context" ),
+        $fixture.data( "resolve-args" )
     );
     t.fail(function() {
         deepEqual( this, $fixture.data( "clear-context" ) );
         deepEqual( $.makeArray( arguments ), $fixture.data( "clear-args" ) );
         start();
     });
-    t.clearWith( 
-        $fixture.data( "clear-context" ), 
-        $fixture.data( "clear-args" ) 
+    t.clearWith(
+        $fixture.data( "clear-context" ),
+        $fixture.data( "clear-args" )
     );
 });
