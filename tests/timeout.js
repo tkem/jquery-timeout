@@ -9,11 +9,11 @@ asyncTest( "resolve timeout with zero delay", 1, function() {
 });
 
 asyncTest( "resolve timeout with one second delay", 2, function() {
-    var time = new Date().getTime();
+    var now = $.now();
     var t = $.timeout( 1000 );
     t.done(function() {
+        ok( $.now() >= now + 1000 );
         deepEqual( this, t );
-        ok( new Date().getTime() >= time + 1000 );
         start();
     });
 });
@@ -54,4 +54,24 @@ asyncTest( "clear timeout with context and args", 2, function() {
         start();
     });
     t.clearWith( $( "#qunit-fixture" ), [ "abc", 123 ] );
+});
+
+asyncTest( "reset timeout", 2, function() {
+    var now = $.now();
+    var t = $.timeout( 1000 );
+    t.done(function() {
+        ok( $.now() >= now + 1000 );
+        deepEqual( this, t );
+        start();
+    });
+    t.reset();
+});
+
+asyncTest( "reset timeout with new delay", 1, function() {
+    var t = $.timeout(  86400000 );
+    t.done(function() {
+        deepEqual( this, t );
+        start();
+    });
+    t.reset( 0 );
 });

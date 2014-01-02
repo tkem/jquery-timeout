@@ -19,11 +19,11 @@ asyncTest( "resolve timeout with zero delay", 1, function() {
 
 asyncTest( "resolve timeout with one second delay", 2, function() {
     var $fixture = $( "#qunit-fixture" );
-    var time = new Date().getTime();
+    var now = $.now();
     var t = $.timeoutWith( 1000, $fixture.data( "resolve-context" ) );
     t.done(function() {
+        ok( $.now() >= now + 1000 );
         deepEqual( this, $fixture.data( "resolve-context" ) );
-        ok( new Date().getTime() >= time + 1000 );
         start();
     });
 });
@@ -88,4 +88,26 @@ asyncTest( "clear timeout with context and args", 2, function() {
         $fixture.data( "clear-context" ),
         $fixture.data( "clear-args" )
     );
+});
+
+asyncTest( "reset timeout", 2, function() {
+    var $fixture = $( "#qunit-fixture" );
+    var now = $.now();
+    var t = $.timeoutWith( 1000, $fixture.data( "resolve-context" ) );
+    t.done(function() {
+        ok( $.now() >= now + 1000 );
+        deepEqual( this, $fixture.data( "resolve-context" ) );
+        start();
+    });
+    t.reset();
+});
+
+asyncTest( "reset timeout with new delay", 1, function() {
+    var $fixture = $( "#qunit-fixture" );
+    var t = $.timeoutWith( 86400000, $fixture.data( "resolve-context" ) );
+    t.done(function() {
+        deepEqual( this, $fixture.data( "resolve-context" ) );
+        start();
+    });
+    t.reset( 0 );
 });

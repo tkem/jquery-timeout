@@ -10,29 +10,39 @@
     // private constructor function
     function Timeout( delay, context, args ) {
         var deferred = $.Deferred(),
-            promise = deferred.promise({
-                clear: function() {
-                    deferred.rejectWith( this, arguments );
-                },
-                clearWith: function( context, args ) {
-                    deferred.rejectWith( context, args );
-                }
-            }),
-            timeoutID = window.setTimeout(function() {
+            promise = deferred.promise(),
+            func = function() {
                 deferred.resolveWith( context || promise, args );
-            }, delay);
+            },
+            timeoutID = window.setTimeout( func, delay );
 
         deferred.fail(function() {
             window.clearTimeout( timeoutID );
         });
 
-        return promise;
+        return $.extend( promise, {
+            clear: function() {
+                deferred.rejectWith( this, arguments );
+                return this;
+            },
+            clearWith: function( context, args ) {
+                deferred.rejectWith( context, args );
+                return this;
+            },
+            reset: function( newDelay ) {
+                if ( this.state() === "pending" ) {
+                    window.clearTimeout( timeoutID );
+                    var d = newDelay !== undefined ? newDelay : delay;
+                    timeoutID = window.setTimeout( func, d );
+                }
+                return this;
+            }
+        });
     }
 
     $.extend({
         timeout: function( delay ) {
-            var args = $.makeArray( arguments ).slice( 1 );
-            return Timeout( delay, undefined, args );
+            return Timeout( delay, undefined, $.makeArray( arguments ).slice( 1 ) );
         },
         timeoutWith: function( delay, context, args ) {
             return Timeout( delay, context, args );
