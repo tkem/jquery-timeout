@@ -2,7 +2,7 @@
  * jQuery Timeout Plugin
  * http://plugins.jquery.com/timeout/
  *
- * Copyright (c) 2011-2013 Thomas Kemmer <tkemmer@computer.org>
+ * Copyright (c) 2011-2014 Thomas Kemmer <tkemmer@computer.org>
  * Released under the MIT license
  * http://github.com/tkem/jquery-timeout/blob/master/MIT-LICENSE.txt
  */
@@ -32,8 +32,11 @@
             reset: function( newDelay ) {
                 if ( this.state() === "pending" ) {
                     window.clearTimeout( timeoutID );
-                    var d = newDelay !== undefined ? newDelay : delay;
-                    timeoutID = window.setTimeout( func, d );
+                    if ( newDelay !== undefined ) {
+                        timeoutID = window.setTimeout( func, newDelay );
+                    } else {
+                        timeoutID = window.setTimeout( func, delay );
+                    }
                 }
                 return this;
             }
