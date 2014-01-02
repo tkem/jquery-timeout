@@ -65,7 +65,7 @@ Invoke a callback function after a five-second delay:
     });
 
 Same as above, but pass the element as context argument to
-[`jQuery.timeoutWith()`](#timeoutWith):
+`jQuery.timeoutWith()`:
 
     $.timeoutWith( 5000, $("#status"), [ "5 seconds" ] ).done(function( msg ) {
         this.text(msg + " later...");
