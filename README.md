@@ -92,6 +92,15 @@ the timeout.
         timeout.reset();
     });
 
+
+## License
+
+Copyright 2011-2014 Thomas Kemmer.
+
+Licensed under the [MIT License][4].
+
+
 [1]: http://api.jquery.com/category/deferred-object/
 [2]: http://developer.mozilla.org/en/docs/Web/API/window.setTimeout
 [3]: http://developer.mozilla.org/en/docs/Web/API/window.clearTimeout
+[4]: http://raw.github.com/tkem/jquery-timeout/master/MIT-LICENSE
