@@ -11,14 +11,14 @@ module.exports = function(grunt) {
             ' * <%= pkg.title || pkg.name %> v<%= pkg.version %>\n' +
             ' * <%= pkg.homepage %>\n' +
             ' *\n' +
-            ' * Copyright (c) <%= copyright %> <%= pkg.author.name %> <<%= pkg.author.email %>>\n' +
-            ' * Released under the <%= pkg.licenses[0].type %> license\n' +
+            ' * Copyright (c) <%= copyright %> <%= pkg.author.name %>\n' +
+            ' * Released under the <%= pkg.licenses[0].type %> License\n' +
             ' * <%= pkg.licenses[0].url %>\n' +
             ' */\n',
 
         minbanner: '/*! <%= pkg.title || pkg.name %> v<%= pkg.version %> | ' +
             '(c) <%= copyright %> <%= pkg.author.name %> | ' +
-            '<%= pkg.licenses[0].type %> license */\n',
+            '<%= pkg.licenses[0].type %> License */\n',
 
         clean: {
             files: ['dist']

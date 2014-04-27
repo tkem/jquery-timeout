@@ -2,8 +2,8 @@
  * jQuery Timeout Plugin
  * https://github.com/tkem/jquery-timeout/
  *
- * Copyright (c) 2011-2014 Thomas Kemmer <tkemmer@computer.org>
- * Released under the MIT license
+ * Copyright (c) 2011-2014 Thomas Kemmer
+ * Released under the MIT License
  * http://raw.github.com/tkem/jquery-timeout/master/MIT-LICENSE
  */
 ;(function( $, window, undefined ) {
