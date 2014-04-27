@@ -1,10 +1,10 @@
-/*!
+/*
  * jQuery Timeout Plugin
- * http://plugins.jquery.com/timeout/
+ * https://github.com/tkem/jquery-timeout/
  *
  * Copyright (c) 2011-2014 Thomas Kemmer <tkemmer@computer.org>
  * Released under the MIT license
- * http://github.com/tkem/jquery-timeout/blob/master/MIT-LICENSE.txt
+ * http://raw.github.com/tkem/jquery-timeout/master/MIT-LICENSE
  */
 ;(function( $, window, undefined ) {
     // private constructor function

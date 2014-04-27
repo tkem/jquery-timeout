@@ -18,5 +18,6 @@
     "description": "Simple, yet elegant jQuery.Deferred wrapper for window.setTimeout() and window.clearTimeout().",
     "keywords": [ "timeout", "deferred", "promise", "delay" ],
     "homepage": "https://github.com/tkem/jquery-timeout/",
+    "docs": "https://github.com/tkem/jquery-timeout/blob/master/README.md",
     "bugs": "https://github.com/tkem/jquery-timeout/issues"
 }
