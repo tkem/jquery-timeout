@@ -1,6 +1,6 @@
 {
     "name": "jquery-timeout",
-    "version": "1.3.2",
+    "version": "1.3.3",
     "title": "jQuery Timeout Plugin",
     "description": "Simple, yet elegant jQuery.Deferred wrapper for window.setTimeout() and window.clearTimeout().",
     "keywords":  ["timeout", "deferred", "promise", "delay"],
