@@ -1,0 +1,24 @@
+{
+    "name": "<%= pkg.name %>",
+    "description": "<%= pkg.description %>",
+    "version": "<%= pkg.version %>",
+    "main": "<%= pkg.main %>",
+    "license": "<%= pkg.license %>",
+    "ignore": [
+        "**/.*",
+        "**/*.json",
+        "bower_components",
+        "node_modules",
+        "tests",
+        "Gruntfile.js"
+    ],
+    "keywords": <%= JSON.stringify(pkg.keywords.concat("jquery")) %>,
+    "authors": [
+        "<%= pkg.author.name %> <<%= pkg.author.email %>>"
+    ],
+    "homepage": "<%= pkg.homepage %>",
+    "repository": <%= JSON.stringify(pkg.repository) %>,
+    "dependencies": {
+        "jquery": "<%= pkg.dependencies.jquery %>"
+    }
+}

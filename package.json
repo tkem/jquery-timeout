@@ -7,6 +7,7 @@
     "homepage": "http://github.com/tkem/jquery-timeout/",
     "bugs": "https://github.com/tkem/jquery-timeout/issues/",
     "license": "MIT",
+    "main": "dist/jquery.timeout.js",
     "author": {
         "name": "Thomas Kemmer",
         "email": "tkemmer@computer.org"

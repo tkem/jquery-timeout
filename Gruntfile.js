@@ -31,6 +31,13 @@ module.exports = function(grunt) {
                 },
                 src: ["src/timeout.jquery.json"],
                 dest: "timeout.jquery.json"
+            },
+            bower: {
+                options: {
+                    process: true
+                },
+                src: ["src/bower.json"],
+                dest: "bower.json"
             }
         },
 
