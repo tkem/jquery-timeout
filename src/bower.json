@@ -10,7 +10,8 @@
         "bower_components",
         "node_modules",
         "tests",
-        "Gruntfile.js"
+        "Gruntfile.js",
+        "!bower.json"
     ],
     "keywords": <%= JSON.stringify(pkg.keywords.concat("jquery")) %>,
     "authors": [

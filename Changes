@@ -1,5 +1,9 @@
 Revision history for jQuery Timeout Plugin
 
+1.3.4   2014-09-14
+
+        - Exclude bower.json from Bower ignores.
+
 1.3.3   2014-09-14
 
         - Register with Bower.
