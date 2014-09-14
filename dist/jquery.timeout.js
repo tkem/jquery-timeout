@@ -7,11 +7,9 @@
  */
 ;(function($, window, undefined) {
     // private constructor function
-    function Timeout(delay, context, args) {
-        var deferred = $.Deferred(),
-            promise = deferred.promise(),
-            callback = function() {
-                deferred.resolveWith(context || promise, args);
+    function Timeout(delay, deferred, context, args) {
+        var callback = function() {
+                deferred.resolveWith(context, args);
             },
             timeoutID = window.setTimeout(callback, delay);
 
@@ -19,7 +17,7 @@
             window.clearTimeout(timeoutID);
         });
 
-        return $.extend(promise, {
+        return $.extend(deferred.promise(), {
             clear: function() {
                 deferred.rejectWith(this, arguments);
                 return this;
@@ -32,10 +30,9 @@
                 if (this.state() === "pending") {
                     window.clearTimeout(timeoutID);
                     if (newDelay !== undefined) {
-                        timeoutID = window.setTimeout(callback, newDelay);
-                    } else {
-                        timeoutID = window.setTimeout(callback, delay);
+                        delay = newDelay;
                     }
+                    timeoutID = window.setTimeout(callback, delay);
                 }
                 return this;
             }
@@ -44,10 +41,13 @@
 
     $.extend({
         timeout: function(delay) {
-            return Timeout(delay, undefined, $.makeArray(arguments).slice(1));
+            var deferred = $.Deferred(),
+                promise = deferred.promise(),
+                args = $.makeArray(arguments).slice(1);
+            return Timeout(delay, deferred, promise, args);
         },
         timeoutWith: function(delay, context, args) {
-            return Timeout(delay, context, args);
+            return Timeout(delay, $.Deferred(), context, args);
         }
     });
 })(jQuery, window);

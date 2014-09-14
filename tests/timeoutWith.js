@@ -129,4 +129,15 @@
         t.reset(0);
     });
 
+    QUnit.asyncTest("reset timeout with updated delay", 1, function(assert) {
+        var $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(86400000, $fixture.data("resolve-context"));
+        t.done(function() {
+            assert.deepEqual(this, $fixture.data( "resolve-context"));
+            QUnit.start();
+        });
+        t.reset(1000);
+        t.reset();
+    });
+
 })(jQuery);

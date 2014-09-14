@@ -31,10 +31,9 @@
                 if (this.state() === "pending") {
                     window.clearTimeout(timeoutID);
                     if (newDelay !== undefined) {
-                        timeoutID = window.setTimeout(callback, newDelay);
-                    } else {
-                        timeoutID = window.setTimeout(callback, delay);
+                        delay = newDelay;
                     }
+                    timeoutID = window.setTimeout(callback, delay);
                 }
                 return this;
             }
