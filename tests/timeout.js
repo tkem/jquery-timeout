@@ -12,8 +12,8 @@
     });
 
     QUnit.asyncTest("resolve timeout with one second delay", 2, function(assert) {
-        var now = $.now();
-        var t = $.timeout(1000);
+        var now = $.now(),
+            t = $.timeout(1000);
         t.done(function() {
             assert.ok($.now() >= now + 1000);
             assert.deepEqual(this, t);
@@ -60,8 +60,8 @@
     });
 
     QUnit.asyncTest("reset timeout", 2, function(assert) {
-        var now = $.now();
-        var t = $.timeout(1000);
+        var now = $.now(),
+            t = $.timeout(1000);
         t.done(function() {
             assert.ok($.now() >= now + 1000);
             assert.deepEqual(this, t);

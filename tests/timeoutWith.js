@@ -12,8 +12,8 @@
     });
 
     QUnit.asyncTest("resolve timeout with zero delay", 1, function(assert) {
-        var $fixture = $("#qunit-fixture");
-        var t = $.timeoutWith(0, $fixture.data( "resolve-context"));
+        var $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(0, $fixture.data( "resolve-context"));
         t.done(function() {
             assert.deepEqual(this, $fixture.data( "resolve-context"));
             QUnit.start();
@@ -21,9 +21,9 @@
     });
 
     QUnit.asyncTest("resolve timeout with one second delay", 2, function(assert) {
-        var $fixture = $("#qunit-fixture");
-        var now = $.now();
-        var t = $.timeoutWith(1000, $fixture.data("resolve-context"));
+        var now = $.now(),
+            $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(1000, $fixture.data("resolve-context"));
         t.done(function() {
             assert.ok($.now() >= now + 1000);
             assert.deepEqual(this, $fixture.data("resolve-context"));
@@ -32,12 +32,12 @@
     });
 
     QUnit.asyncTest("resolve timeout with context and args", 2, function(assert) {
-        var $fixture = $("#qunit-fixture");
-        var t = $.timeoutWith(
-            0,
-            $fixture.data("resolve-context"),
-            $fixture.data("resolve-args")
-        );
+        var $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(
+                0,
+                $fixture.data("resolve-context"),
+                $fixture.data("resolve-args")
+            );
         t.done(function() {
             assert.deepEqual(this, $fixture.data("resolve-context"));
             assert.deepEqual($.makeArray(arguments), $fixture.data("resolve-args"));
@@ -46,12 +46,12 @@
     });
 
     QUnit.asyncTest("clear timeout without args", 2, function(assert) {
-        var $fixture = $("#qunit-fixture");
-        var t = $.timeoutWith(
-            86400000,
-            $fixture.data("resolve-context"),
-            $fixture.data("resolve-args")
-        );
+        var $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(
+                86400000,
+                $fixture.data("resolve-context"),
+                $fixture.data("resolve-args")
+            );
         t.fail(function() {
             assert.deepEqual(this, t);
             assert.deepEqual($.makeArray(arguments), []);
@@ -61,12 +61,12 @@
     });
 
     QUnit.asyncTest("clear timeout with args", 2, function(assert) {
-        var $fixture = $("#qunit-fixture");
-        var t = $.timeoutWith(
-            86400000,
-            $fixture.data("resolve-context"),
-            $fixture.data("resolve-args")
-        );
+        var $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(
+                86400000,
+                $fixture.data("resolve-context"),
+                $fixture.data("resolve-args")
+            );
         t.fail(function() {
             assert.deepEqual(this, t);
             assert.deepEqual($.makeArray(arguments), $fixture.data("clear-args"));
@@ -76,12 +76,12 @@
     });
 
     QUnit.asyncTest("clear timeout with context and args", 2, function(assert) {
-        var $fixture = $("#qunit-fixture");
-        var t = $.timeoutWith(
-            86400000,
-            $fixture.data("resolve-context"),
-            $fixture.data("resolve-args")
-        );
+        var $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(
+                86400000,
+                $fixture.data("resolve-context"),
+                $fixture.data("resolve-args")
+            );
         t.fail(function() {
             assert.deepEqual(this, $fixture.data("clear-context"));
             assert.deepEqual($.makeArray(arguments), $fixture.data("clear-args"));
@@ -94,9 +94,9 @@
     });
 
     QUnit.asyncTest("reset timeout", 2, function(assert) {
-        var $fixture = $("#qunit-fixture");
-        var now = $.now();
-        var t = $.timeoutWith(1000, $fixture.data("resolve-context"));
+        var now = $.now(),
+            $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(1000, $fixture.data("resolve-context"));
         t.done(function() {
             assert.ok($.now() >= now + 1000);
             assert.deepEqual(this, $fixture.data("resolve-context"));
@@ -106,8 +106,8 @@
     });
 
     QUnit.asyncTest("reset timeout with new delay", 1, function(assert) {
-        var $fixture = $("#qunit-fixture");
-        var t = $.timeoutWith(86400000, $fixture.data("resolve-context"));
+        var $fixture = $("#qunit-fixture"),
+            t = $.timeoutWith(86400000, $fixture.data("resolve-context"));
         t.done(function() {
             assert.deepEqual(this, $fixture.data( "resolve-context"));
             QUnit.start();
