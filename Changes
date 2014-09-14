@@ -1,27 +1,39 @@
-1.3.1 2014-03-27
+Revision history for jQuery Timeout Plugin
 
-* Update QUnit to v1.14.0.
-* Add Changes.
-* Add license information to README.
+1.3.2   2014-09-14
 
-1.3.0 2014-01-02
+        - Build using Grunt.
 
-* Add Timeout.reset() [#2].
+        - Update QUnit to v1.15.0.
 
-1.2.1 2013-12-29
+1.3.1   2014-03-27
 
-* Fix callback context [#1].
+        - Update QUnit to v1.14.0.
 
-1.2.0 2013-12-20
+        - Add Changes.
 
-* Move repository to [https://github.com/tkem/jquery-timeout].
-* Add jQuery.timeoutWith(), jQuery.clearWith().
-* Add QUnit tests.
+        - Add license information to README.
 
-1.1.0 2011-08-20
+1.3.0   2014-01-02
 
-* Add optional args to jQuery.timeout()
+        - Add `Timeout.reset()`.
 
-1.0.0 2011-04-02
+1.2.1   2013-12-29
 
-* Initial release [https://code.google.com/p/jquery-timeout/].
+        - Fix callback context.
+
+1.2.0   2013-12-20
+
+        - Move repository to GitHub,
+
+        - Add `jQuery.timeoutWith()`, `jQuery.clearWith()`.
+
+        - Add QUnit tests.
+
+1.1.0   2011-08-20
+
+        - Add optional args to `jQuery.timeout()`.
+
+1.0.0   2011-04-02
+
+        - Initial release.

@@ -1,20 +1,30 @@
 {
     "name": "jquery-timeout",
-    "version": "0.0.0-ignored",
+    "version": "1.3.2",
+    "title": "jQuery Timeout Plugin",
+    "description": "Simple, yet elegant jQuery.Deferred wrapper for window.setTimeout() and window.clearTimeout().",
+    "keywords":  ["timeout", "deferred", "promise", "delay"],
+    "homepage": "http://github.com/tkem/jquery-timeout/",
+    "bugs": "https://github.com/tkem/jquery-timeout/issues/",
+    "license": "MIT",
+    "author": {
+        "name": "Thomas Kemmer",
+        "email": "tkemmer@computer.org"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/tkem/jquery-timeout.git"
+    },
+    "dependencies": {
+        "jquery": ">=1.5"
     },
     "devDependencies": {
         "grunt": "~0.4.4",
         "grunt-contrib-clean": "~0.4.0",
         "grunt-contrib-concat": "~0.4.0",
-        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-jshint": "~0.8.0",
         "grunt-contrib-qunit": "~0.2.0",
         "grunt-contrib-uglify": "~0.4.0",
-        "grunt-contrib-watch": "~0.4.0"
-    },
-    "engines": {
-        "node": ">= 0.8.0"
+        "grunt-contrib-watch": "~0.6.1"
     }
 }

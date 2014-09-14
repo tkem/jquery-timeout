@@ -1,0 +1,22 @@
+{
+    "name": "<%= pkg.name.replace(/^jquery-/, '') %>",
+    "version": "<%= pkg.version %>",
+    "title": "<%= pkg.title %>",
+    "author": {
+        "name": "<%= pkg.author.name %>",
+        "email": "<%= pkg.author.email %>"
+    },
+    "licenses": [
+        {
+            "type": "<%= pkg.license %>",
+            "url": "<%= pkg.repository.url.replace(/\.git$/, '') %>/blob/master/LICENSE"
+        }
+    ],
+    "dependencies": {
+        "jquery": "<%= pkg.dependencies.jquery %>"
+    },
+    "description": "<%= pkg.description %>",
+    "keywords": <%= JSON.stringify(pkg.keywords) %>,
+    "homepage": "<%= pkg.homepage %>",
+    "bugs": "<%= pkg.bugs %>"
+}

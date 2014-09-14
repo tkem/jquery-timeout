@@ -1,14 +1,18 @@
 {
     "curly": true,
     "eqeqeq": true,
+    "eqnull": true,
+    "expr": true,
     "immed": true,
-    "latedef": true,
-    "newcap": true,
     "noarg": true,
-    "sub": true,
+    "onevar": true,
+    "quotmark": "double",
+    "smarttabs": true,
+    "trailing": true,
     "undef": true,
     "unused": true,
-    "boss": true,
-    "eqnull": true,
+    // environments
+    "browser": true,
+    "jquery": true,
     "node": true
 }
