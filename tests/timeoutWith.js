@@ -45,6 +45,20 @@
         });
     });
 
+    QUnit.asyncTest("resolve timeout with empty string context", 1, function(assert) {
+        $.timeoutWith(0, "").done(function() {
+            assert.equal(this, "");
+            QUnit.start();
+        });
+    });
+
+    QUnit.asyncTest("resolve timeout with zero (0) context", 1, function(assert) {
+        $.timeoutWith(0, 0).done(function() {
+            assert.equal(this, 0);
+            QUnit.start();
+        });
+    });
+
     QUnit.asyncTest("clear timeout without args", 2, function(assert) {
         var $fixture = $("#qunit-fixture"),
             t = $.timeoutWith(
