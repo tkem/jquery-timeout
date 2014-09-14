@@ -1,7 +1,7 @@
 {
     "name": "jquery-timeout",
     "description": "Simple, yet elegant jQuery.Deferred wrapper for window.setTimeout() and window.clearTimeout().",
-    "version": "1.3.4",
+    "version": "1.3.5",
     "main": "dist/jquery.timeout.js",
     "license": "MIT",
     "ignore": [

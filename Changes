@@ -1,5 +1,13 @@
 Revision history for jQuery Timeout Plugin
 
+1.3.5   2014-09-14
+
+        - Fix `Timeout.reset()` handling of new delay.
+
+        - Fix `jQuery.timeoutWith()` context handling.
+
+        - Fix jshint warnings.
+
 1.3.4   2014-09-14
 
         - Exclude bower.json from Bower ignores.

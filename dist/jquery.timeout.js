@@ -1,5 +1,5 @@
 /*!
- * jQuery Timeout Plugin v1.3.4
+ * jQuery Timeout Plugin v1.3.5
  * http://github.com/tkem/jquery-timeout/
  *
  * Copyright (c) 2011-2014 Thomas Kemmer.

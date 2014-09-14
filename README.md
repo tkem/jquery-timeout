@@ -52,8 +52,9 @@ Reset a pending Timeout object by restarting its timer.  If the
 optional argument `newDelay` is specified, the corresponding Deferred
 object will be resolved after `newDelay` milliseconds.  Otherwise, the
 original `delay` passed to `jQuery.timeout()` or
-`jQuery.timeoutWith()` is used.  Note that calling `timeout.reset()`
-has no effect if the Deferred has already been resolved or rejected.
+`jQuery.timeoutWith()`, or the last delay specified via
+`timeout.reset()` is used.  Note that calling `timeout.reset()` has no
+effect if the Deferred has already been resolved or rejected.
 
 
 ## Examples

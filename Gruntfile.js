@@ -25,11 +25,11 @@ module.exports = function(grunt) {
                 src: ["src/jquery.timeout.js"],
                 dest: "dist/jquery.timeout.js"
             },
-            manifest: {
+            plugin: {
                 options: {
                     process: true
                 },
-                src: ["src/timeout.jquery.json"],
+                src: ["src/plugin.json"],
                 dest: "timeout.jquery.json"
             },
             bower: {
