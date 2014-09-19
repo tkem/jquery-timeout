@@ -1,0 +1,25 @@
+{
+    "name": "jquery-timeout",
+    "description": "Simple, yet elegant jQuery.Deferred wrapper for window.setTimeout() and window.clearTimeout().",
+    "version": "1.3.6",
+    "main": "dist/jquery.timeout.js",
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "**/*.json",
+        "bower_components",
+        "node_modules",
+        "tests",
+        "Gruntfile.js",
+        "!bower.json"
+    ],
+    "keywords": ["timeout","deferred","promise","delay","jquery"],
+    "authors": [
+        "Thomas Kemmer <tkemmer@computer.org>"
+    ],
+    "homepage": "http://github.com/tkem/jquery-timeout/",
+    "repository": {"type":"git","url":"https://github.com/tkem/jquery-timeout.git"},
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
