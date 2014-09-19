@@ -2,16 +2,35 @@
 
 **jQuery 1.5** introduced the [Deferred Object][1] to register
 callbacks for asynchronous events.  Although the jQuery documentation
-contains examples on how to use Deferred objects with the native
-[`window.setTimeout()`][2] and [`window.clearTimeout()`][3] functions,
-jQuery does not provide a simple interface for timer-based Deferreds
-yet.
+contains [examples][2] on how to use Deferred objects with the native
+`window.setTimeout()` and `window.clearTimeout()` functions, jQuery
+does not provide a simple interface for timer-based Deferreds.
 
 This plugin provides the two functions `jQuery.timeout()` and
 `jQuery.timeoutWith()` that create a Deferred object which is resolved
 after a given delay.  The returned Timeout object extends the
 Deferred's Promise and provides additional methods for clearing and
 resetting pending timeouts.
+
+
+## Getting Started
+
+Most easily, the plugin can be installed via [Bower][5]:
+
+    bower install jquery-timeout
+
+To build and install from source, you need to have [npm][6] and
+[grunt][7] installed.  In the repository's root directory, run:
+
+    npm install
+    grunt test
+    grunt dist
+
+Either way, uncompressed and minified JavaScript files for inclusion
+in your project will be available in the `dist` directory:
+
+    dist/jquery.timeout.js
+    dist/jquery.timeout.min.js
 
 
 ## API Documentation
@@ -102,6 +121,8 @@ Licensed under the [MIT License][4].
 
 
 [1]: http://api.jquery.com/category/deferred-object/
-[2]: http://developer.mozilla.org/en/docs/Web/API/window.setTimeout
-[3]: http://developer.mozilla.org/en/docs/Web/API/window.clearTimeout
+[2]: http://learn.jquery.com/code-organization/deferreds/examples
 [4]: http://raw.github.com/tkem/jquery-timeout/master/LICENSE
+[5]: http://bower.io/
+[6]: http://www.npmjs.org/
+[7]: http://gruntjs.com/

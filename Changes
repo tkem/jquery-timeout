@@ -1,55 +1,78 @@
-Revision history for jQuery Timeout Plugin
+1.3.6 2014-09-14
+----------------
 
-1.3.5   2014-09-14
+- Add installation instructions to README.
 
-        - Fix `Timeout.reset()` handling of new delay.
 
-        - Fix `jQuery.timeoutWith()` context handling.
+1.3.5 2014-09-14
+----------------
 
-        - Fix jshint warnings.
+- Fix `Timeout.reset()` handling of new delay.
 
-1.3.4   2014-09-14
+- Fix `jQuery.timeoutWith()` context handling.
 
-        - Exclude bower.json from Bower ignores.
+- Fix jshint warnings.
 
-1.3.3   2014-09-14
 
-        - Register with Bower.
+1.3.4 2014-09-14
+----------------
 
-1.3.2   2014-09-14
+- Exclude bower.json from Bower ignores.
 
-        - Build using Grunt.
 
-        - Update QUnit to v1.15.0.
+1.3.3 2014-09-14
+----------------
 
-1.3.1   2014-03-27
+- Register with Bower.
 
-        - Update QUnit to v1.14.0.
 
-        - Add Changes.
+1.3.2 2014-09-14
+----------------
 
-        - Add license information to README.
+- Build using Grunt.
 
-1.3.0   2014-01-02
+- Update QUnit to v1.15.0.
 
-        - Add `Timeout.reset()`.
 
-1.2.1   2013-12-29
+1.3.1 2014-03-27
+----------------
 
-        - Fix callback context.
+- Update QUnit to v1.14.0.
 
-1.2.0   2013-12-20
+- Add Changes.
 
-        - Move repository to GitHub,
+- Add license information to README.
 
-        - Add `jQuery.timeoutWith()`, `jQuery.clearWith()`.
 
-        - Add QUnit tests.
+1.3.0 2014-01-02
+----------------
 
-1.1.0   2011-08-20
+- Add `Timeout.reset()`.
 
-        - Add optional args to `jQuery.timeout()`.
 
-1.0.0   2011-04-02
+1.2.1 2013-12-29
+----------------
 
-        - Initial release.
+- Fix callback context.
+
+
+1.2.0 2013-12-20
+----------------
+
+- Move repository to GitHub,
+
+- Add `jQuery.timeoutWith()` and `Timeout.clearWith()`.
+
+- Add QUnit tests.
+
+
+1.1.0 2011-08-20
+----------------
+
+- Add optional args to `jQuery.timeout()`.
+
+
+1.0.0 2011-04-02
+----------------
+
+- Initial release.
